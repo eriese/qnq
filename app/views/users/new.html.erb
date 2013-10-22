@@ -1,0 +1,12 @@
+
+<%= form_for(@user) do |f| %>
+<%= f.label :fb_email, "Facebook email" %>
+<%= f.text_field :fb_email %>
+<%= f.label :fb_pass, "What password do you use on facebook?" %>
+<%= f.password_field :fb_pass %>
+<%= f.label :password, "What password would you like to use for this app?" %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation, "Please re-enter that password" %>
+<%= f.password_field :password_confirmation %>
+<%= f.submit "Sign Up"%>
+<% end %>

@@ -1,0 +1,8 @@
+"this will be the user profile"<br>
+<%= @user.name %><br>
+gender: <%= @user.gender %><br>
+sexuality: <%= @user.sexuality %><br>
+
+<% if params[:id] == session[:user_id].to_s %>
+<%= link_to("edit profile", "/users/#{@user.id}/edit") %>
+<% end %>

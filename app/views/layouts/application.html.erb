@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Qnq</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div>
+    <% if session[:user_id] %>
+    <%= link_to("Search", "/users/search") %>
+    <%= link_to("Your Profile", "/users/#{session[:user_id]}") %>
+    <%= link_to("Log Out", "/logout") %>
+
+    <% else %>
+    <%= link_to("Sign in", "/login") %>
+    <% end %></div>
+    <% if session[:user_id] %>
+    <%= yield %>
+    <% else %>
+    <%= form_tag "/session" do %>
+<%= text_field_tag "name", nil, placeholder: "Name"%>
+<%= password_field_tag "password", nil, placeholder: "Password" %>
+<%= submit_tag "log in" %>
+<% end %>
+    <% end %>
+
+  </body>
+  </html>
