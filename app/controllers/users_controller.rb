@@ -5,6 +5,7 @@ class UsersController < ApplicationController
       login_user = User.find(session[:user_id])
       graph = Koala::Facebook::API.new(login_user.oauth_token)
       @mutual = graph.get_connection("me", "mutualfriends/#{@user.uid}")
+      @size = "large"
     else
       render :search
     end
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   def search
     @results = User.where(name: params[:name])
     @results ||= []
+    @size = "square"
   end
   def edit
     @user = User.find(params[:id])

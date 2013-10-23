@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @graph = Koala::Facebook::API.new(user.oauth_token)
     fb_user = @graph.get_object("me", "fields" =>"username")
     user.photo_url = "https://graph.facebook.com/#{fb_user["username"]}/picture?type=square"
+    user.fb_photo_large = "https://graph.facebook.com/#{fb_user["username"]}/picture?type=large"
     user.save
     session[:user_id] = user.id
 
