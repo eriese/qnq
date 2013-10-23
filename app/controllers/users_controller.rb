@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
-  def index
-    user = User.where(name: params[:name]).first
-    redirect_to "/users/#{user.id}"
-  end
   def show
     if User.find(params[:id])
       @user = User.find(params[:id])
-      if params[:id] == session[:user_id]
-        @edit_button = true
-      end
+      login_user = User.find(session[:user_id])
+      graph = Koala::Facebook::API.new(login_user.oauth_token)
+      @mutual = graph.get_connection("me", "mutualfriends/#{@user.uid}")
     else
       render :search
     end
@@ -30,6 +26,8 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find(params[:id])
+    @graph = Koala::Facebook::API.new(@user.oauth_token)
+    @fb_user = @graph.get_object("me", "fields" =>"name,username")
   end
   def update
     user = User.find(params[:id])

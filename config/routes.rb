@@ -1,11 +1,15 @@
 Qnq::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  root to: "session#new"
-  get "/login" => "session#new"
+  root to: "sessions#new"
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+  get "/login" => "sessions#new"
   get "/users/search" => "users#search"
   post "/users/update" => "users#update"
-  get "/logout" => "session#destroy"
+  get "/logout" => "sessions#destroy"
+
   resources :users
   resources :session
   # Sample of regular route:

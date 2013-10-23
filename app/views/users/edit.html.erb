@@ -1,18 +1,11 @@
 <%= form_for @user do |t| %>
-<%= t.label :name, "Name"%>
-<%= t.text_field :name, default: @user.name %><br>
-<%= t.label :gender, "Gender" %>
-<%= t.text_field :gender, default: @user.gender %><br>
-<%= t.label :sexuality, "Sexuality" %>
-<%= t.text_field :sexuality, default: @user.sexuality %><br>
-<%=t.label :fb_email, "Facebook email" %>
-<%=t.text_field :fb_email, default: @user.fb_email %><br>
-<%=t.label :fb_pass, "What password do you use on facebook?" %>
-<%=t.password_field :fb_pass, default: @user.fb_pass %><br>
-<%=t.label :password, "Please enter your password" %>
-<%=t.password_field :password %><br>
-<%=t.label :password_confirmation, "Please re-enter your password" %>
-<%=t.password_field :password_confirmation %>
-<%= t.hidden_field :id, value: @user.id%><br>
-<%=t.submit "Update"%>
+  <%= t.label :name, "Name"%>
+  <%= t.text_field :name, default: @user.name %><br>
+  <%= t.label :gender, "Gender" %>
+  <%= t.text_field :gender, default: @user.gender %><br>
+  <%= t.label :sexuality, "Sexuality" %>
+  <%= t.text_field :sexuality, default: @user.sexuality %><br>
+  <%= t.hidden_field :id, value: @user.id%>
+  <%= t.hidden_field :photo_url, value: "https://graph.facebook.com/#{@fb_user["username"]}/picture?type=square"%><br>
+  <%=t.submit "Update"%>
 <% end %>

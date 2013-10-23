@@ -1,8 +1,19 @@
-"this will be the user profile"<br>
-<%= @user.name %><br>
+
+<h1><%= @user.name %></h1><br>
+<img src=<%= @user.photo_url %> alt=""><br>
 gender: <%= @user.gender %><br>
 sexuality: <%= @user.sexuality %><br>
-
+<br>
+<% if @user.id != session[:user_id] %>
+<h2>Mutual friends:</h2>
+  <% if @mutual == [] %>
+    <p>Uh oh! You two have no friends in common</p>
+  <% else %>
+    <% @mutual.each do |friend| %>
+      <%= friend["name"] %><br>
+    <% end %>
+  <% end %>
+<% end %>
 <% if params[:id] == session[:user_id].to_s %>
 <%= link_to("edit profile", "/users/#{@user.id}/edit") %>
 <% end %>

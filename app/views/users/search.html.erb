@@ -1,8 +1,10 @@
 <%= form_tag "/users/search", method: "get" do %>
-<%= text_field_tag :name %>
-<%= submit_tag "Search" %>
+  <%= text_field_tag :name %>
+  <%= submit_tag "Search" %>
 <% end %>
 
 <% @results.each do |result| %>
-<a href=<%= "/users/#{result.id}" %>><%= result.name %></a>
+  <%= image_tag(result.photo_url)  %>
+  <%= link_to(result.name, "/users/#{result.id}") %>
 <% end %>
+
