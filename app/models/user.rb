@@ -18,7 +18,7 @@
 
 class User < ActiveRecord::Base
   # has_secure_password
-  attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large
+  attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large, :niche
   # validates :fb_email, :presence => true, :uniqueness => true
   # validates :password, :password_confirmation, :presence => true
   # validates :password, :password_confirmation, :length => {in: 6..20}
