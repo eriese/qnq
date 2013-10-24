@@ -15,5 +15,5 @@ sexuality: <%= @user.sexuality %><br>
   <% end %>
 <% end %>
 <% if params[:id] == session[:user_id].to_s %>
-<%= link_to("edit profile", "/users/#{@user.id}/edit") %>
+<strong><%= link_to("Edit Profile", "/users/#{@user.id}/edit") %></strong>
 <% end %>

@@ -1,0 +1,81 @@
+@import url("fonts/stylesheet.css");
+
+body {
+  font-family: gentium_basicregular;
+  background-color: #261129;
+  color: #3B353B;
+  height: 100%;
+  /*background-color: rgba(26,12,28,1);*/
+}
+img {
+  border-radius: 5px;
+}
+.header h1{
+  font-size: 54px;
+  font-family: quicksanddash;
+  color: #571639;
+}
+h2{
+  font-size: 22px;
+  text-align: right;
+  margin-right: 15%;
+  font-family: quicksandbold;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+input, label, textarea, select, button {
+  width : 200px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #3B353B;
+  font-family: gentium_basicregular;
+  font-size: 16px;
+  border-radius: 3;
+}
+.header {
+  text-align: center;
+}
+.container {
+  width: 80%;
+  height: 100%;
+  background-color: #FFF2FF;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /*color: #8351C8;*/
+  padding: 25px;
+  border-radius: 5px;
+}
+.nav {
+  font-family: quicksandbold;
+  margin-bottom: 20px;
+  color: #8C045D;
+  background-color: #261129;
+  border-radius: 5px;
+  /*rgba(64,16,42,0.98);*/
+}
+.nav ul{
+  text-align: center;
+}
+.nav li {
+  text-align: center;
+  display: inline-block;
+  width: 23%;
+  padding: 10px 0px;
+}
+a {
+  text-decoration: none;
+  color: #8351C8;
+}
+a:hover{
+  color: #8C045D;
+}
+.main {
+  text-align: center;
+  max-width: 50%;
+  margin: auto;
+}

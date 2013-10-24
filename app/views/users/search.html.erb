@@ -1,5 +1,8 @@
+<h1>Search by name:</h1>
 <%= form_tag "/users/search", method: "get" do %>
   <%= text_field_tag :name %>
+  <br>
+  <br>
   <%= submit_tag "Search" %>
 <% end %>
 

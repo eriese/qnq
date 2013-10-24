@@ -1,11 +1,14 @@
+
 <%= form_for @user do |t| %>
-  <%= t.label :name, "Name"%>
+  <%= t.label :name, "Name"%><br>
   <%= t.text_field :name, default: @user.name %><br>
-  <%= t.label :gender, "Gender" %>
+  <br>
+  <%= t.label :gender, "Gender" %><br>
   <%= t.text_field :gender, default: @user.gender %><br>
-  <%= t.label :sexuality, "Sexuality" %>
+  <br>
+  <%= t.label :sexuality, "Sexuality" %><br>
   <%= t.text_field :sexuality, default: @user.sexuality %><br>
+  <br>
   <%= t.hidden_field :id, value: @user.id%>
-  <%= t.hidden_field :photo_url, value: "https://graph.facebook.com/#{@fb_user["username"]}/picture?type=square"%><br>
   <%=t.submit "Update"%>
 <% end %>

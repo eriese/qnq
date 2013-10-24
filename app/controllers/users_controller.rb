@@ -24,15 +24,14 @@ class UsersController < ApplicationController
   def search
     @results = User.where(name: params[:name])
     @results ||= []
-    @size = "square"
   end
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
     @graph = Koala::Facebook::API.new(@user.oauth_token)
     @fb_user = @graph.get_object("me", "fields" =>"name,username")
   end
   def update
-    user = User.find(params[:id])
+    user = User.find(session[:user_id])
     if user.update_attributes(params[:user])
       redirect_to("/users/#{user.id}")
     else redirect_to("/users/#{user.id}/edit")

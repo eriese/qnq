@@ -13,11 +13,12 @@
 #  oauth_expires_at :datetime
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  fb_photo_large   :string(255)
 #
 
 class User < ActiveRecord::Base
   # has_secure_password
-  attr_accessible :name, :gender, :sexuality, :photo_url
+  attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large
   # validates :fb_email, :presence => true, :uniqueness => true
   # validates :password, :password_confirmation, :presence => true
   # validates :password, :password_confirmation, :length => {in: 6..20}

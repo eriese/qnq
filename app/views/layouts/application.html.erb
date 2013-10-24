@@ -1,34 +1,4 @@
 <!DOCTYPE html>
-<style>
-body {
-  background-color: #40102A;
-  color: #8351C8;
-}
-.nav {
-  margin: 0px;
-  color: #8C045D;
-  background-color: rgba(26,12,28,1);
-  border-radius: 10px;
-}
-.nav li {
-  text-align: center;
-  display: inline-block;
-  width: 24%;
-  padding: 10px 0px;
-}
-a {
-  text-decoration: none;
-  color: #8351C8;
-}
-a:hover{
-  color: #8C045D;
-}
-.main {
-  text-align: center;
-  max-width: 50%;
-  margin: auto;
-}
-</style>
 <html>
 <head>
   <title>Qnq</title>
@@ -37,22 +7,34 @@ a:hover{
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav">
-    <ul>
-     <% if current_user %>
-     <li>Signed in as <strong><%= current_user.name %></strong>!</li>
-     <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-     <li><%= link_to("Search", "/users/search") %></li>
-     <li><%= link_to("Your Profile", "/users/#{session[:user_id]}") %></li>
-     <% end %>
-   </ul>
- </div>
- <div class="main">
-  <% if session[:user_id] != nil %>
+  <div class="container">
+    <div class="header">
+      <h1>Queers Know Queers</h1>
+      <h2>Connecting the dots</h2>
+    </div>
+    <div class="nav">
+      <ul>
+       <% if current_user %>
+       <li>Signed in as <strong><%= current_user.name %></strong></li>
+       <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+       <li><%= link_to("Search", "/users/search") %></li>
+       <li><%= link_to("Your Profile", "/users/#{session[:user_id]}") %></li>
+       <% end %>
+     </ul>
+   </div>
+   <div class="main">
+    <% if session[:user_id] != nil %>
     <%= yield %>
-  <% else %>
-    <h1><%= link_to("Sign in with facebook", "/auth/facebook") %></h1>
-  <% end %>
+    <% else %>
+    <br>
+    <br>
+    <br>
+    <h1><%= link_to("Sign in with Facebook", "/auth/facebook") %></h1>
+    <br>
+    <br>
+    <br>
+    <% end %>
+  </div>
 </div>
 </body>
 </html>
