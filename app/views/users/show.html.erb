@@ -1,8 +1,9 @@
 
 <h1><%= @user.name %></h1><br>
 <img src=<%= @user.fb_photo_large %> alt=""><br>
-gender: <%= @user.gender %><br>
-sexuality: <%= @user.sexuality %><br>
+Gender: <%= @user.gender %><br>
+Sexuality: <%= @user.sexuality %><br>
+Niches: <%= @user.niche %>
 <br>
 <% if @user.id != session[:user_id] %>
 <h2>Mutual friends:</h2>
