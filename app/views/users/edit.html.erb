@@ -1,14 +1,17 @@
-
-<%= form_for @user do |t| %>
-  <%= t.label :name, "Name"%><br>
-  <%= t.text_field :name, default: @user.name %><br>
-  <br>
-  <%= t.label :gender, "Gender" %><br>
-  <%= t.text_field :gender, default: @user.gender %><br>
-  <br>
-  <%= t.label :sexuality, "Sexuality" %><br>
-  <%= t.text_field :sexuality, default: @user.sexuality %><br>
-  <br>
-  <%= t.hidden_field :id, value: @user.id%>
-  <%=t.submit "Update"%>
-<% end %>
+<div class="form">
+  <%= form_for @user do |t| %>
+    <%= t.label :name, "Name"%>
+    <%= t.text_field :name, default: @user.name %><br>
+    <br>
+    <%= t.label :gender, "Gender" %>
+    <%= t.text_field :gender, default: @user.gender %><br>
+    <br>
+    <%= t.label :sexuality, "Sexuality" %>
+    <%= t.text_field :sexuality, default: @user.sexuality %><br>
+    <br>
+    <%= t.label :niche, "Community Niches" %>
+    <%= t.text_area :niche, default: @user.niche %>
+    <%= t.hidden_field :id, value: @user.id%>
+    <%=t.submit "Update"%>
+  <% end %>
+</div>

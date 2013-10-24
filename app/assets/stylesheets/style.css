@@ -11,9 +11,15 @@ img {
   border-radius: 5px;
 }
 .header h1{
-  font-size: 54px;
+  font-size: 60px;
   font-family: quicksanddash;
   color: #571639;
+}
+.form {
+  padding: 0px;
+  text-align: right;
+  margin: 0px auto 0px 60px;
+  width: 300px;
 }
 h2{
   font-size: 22px;

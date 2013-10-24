@@ -3,12 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 #Gemfile
 group :development, :test do
-  gem 'pry-rails'           # Causes rails console to open pry
-                            # https://github.com/rweng/pry-rails
-  gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
-                            # https://github.com/nixme/pry-debugger
-  gem 'pry-stack_explorer'  # Navigate the call-stack
-                            # https://github.com/pry/pry-stack_explorer
+
   gem 'annotate'            # Annotate all your models, tests, fixtures, and factories
                             # https://github.com/ctran/annotate_models
   gem 'quiet_assets'        # Turns off the Rails asset pipeline log
@@ -21,13 +16,20 @@ group :development, :test do
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
   gem 'rails-erd'           # Diagrams your models. NOTE! $ brew install graphviz
                             # https://github.com/voormedia/rails-erd
-  gem 'awesome_print'       # Pretty print your Ruby objects in full color and with proper indentation
-                            # https://github.com/michaeldv/awesome_print
+
 end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'pry-rails'           # Causes rails console to open pry
+                            # https://github.com/rweng/pry-rails
+gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
+                            # https://github.com/nixme/pry-debugger
+gem 'pry-stack_explorer'  # Navigate the call-stack
+                            # https://github.com/pry/pry-stack_explorer
+gem 'awesome_print'       # Pretty print your Ruby objects in full color and with proper indentation
+                            # https://github.com/michaeldv/awesome_print
 
 
 # Gems used only for assets and not required
