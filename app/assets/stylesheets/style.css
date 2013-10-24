@@ -17,8 +17,8 @@ img {
 .form {
   padding: 0px;
   text-align: right;
-  margin: 0px auto 0px 60px;
-  width: 300px;
+  margin: 0px auto 15px -75px;
+  width: 500px;
 }
 h2{
   font-size: 22px;
@@ -29,9 +29,9 @@ h2{
   margin-bottom: 15px;
 }
 input, label, textarea, select, button {
-  width : 200px;
+  width : 300px;
   margin: 0;
-
+  max-height: 75px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
