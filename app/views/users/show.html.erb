@@ -1,9 +1,21 @@
 
 <h1><%= @user.name %></h1><br>
 <img src=<%= @user.fb_photo_large %> alt=""><br>
-Gender: <%= @user.gender %><br>
-Sexuality: <%= @user.sexuality %><br>
-Niches: <%= @user.niche %>
+<table>
+  <tr>
+    <td class="attr">Gender:</td>
+    <td><%= @user.gender %></td>
+  </tr>
+  <tr>
+    <td class="attr">Sexuality:</td>
+    <td><%= @user.sexuality %></td>
+  </tr>
+  <tr>
+    <td class="attr">Niches:</td>
+    <td> <%= @user.niche %></td>
+  </tr>
+</table>
+
 <br>
 <% if @user.id != session[:user_id] %>
 <h2>Mutual friends:</h2>

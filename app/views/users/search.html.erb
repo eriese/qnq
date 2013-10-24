@@ -5,7 +5,8 @@
   <br>
   <%= submit_tag "Search" %>
 <% end %>
-
+<br>
+<br>
 <% @results.each do |result| %>
   <%= image_tag(result.photo_url)  %>
   <%= link_to(result.name, "/users/#{result.id}") %>
