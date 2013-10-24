@@ -8,7 +8,6 @@ if defined?(Bundler)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
-
 module Qnq
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -52,6 +51,7 @@ module Qnq
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Enable the asset pipeline
     config.assets.enabled = true
