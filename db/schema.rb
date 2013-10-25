@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131024202137) do
+ActiveRecord::Schema.define(:version => 20131025130955) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20131024202137) do
     t.datetime "updated_at",       :null => false
     t.string   "fb_photo_large"
     t.text     "niche"
+    t.text     "name_downcase"
   end
 
 end

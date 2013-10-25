@@ -18,7 +18,7 @@
 
 class User < ActiveRecord::Base
   # has_secure_password
-  attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large, :niche
+  attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large, :niche, :name_downcase
   # validates :fb_email, :presence => true, :uniqueness => true
   # validates :password, :password_confirmation, :presence => true
   # validates :password, :password_confirmation, :length => {in: 6..20}
@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     user.provider = auth.provider
     user.uid = auth.uid
     user.name ||= auth.info.name
+    user.name_downcase = user.name.downcase
     user.oauth_token = auth.credentials.token
     user.oauth_expires_at = Time.at(auth.credentials.expires_at)
     user.save!

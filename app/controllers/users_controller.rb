@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
   def search
     if params[:name]
-      @results = User.where("name like ?", "%#{params[:name]}%")
+      search = params[:name].downcase
+      @results = User.where("name_downcase like ?", "%#{search}%")
     end
     @results ||= []
   end
