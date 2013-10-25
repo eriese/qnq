@@ -22,7 +22,9 @@ class UsersController < ApplicationController
     end
   end
   def search
-    @results = User.where(name: params[:name])
+    if params[:name]
+      @results = User.where("name like ?", "%#{params[:name]}%")
+    end
     @results ||= []
   end
   def edit
