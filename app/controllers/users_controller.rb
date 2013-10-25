@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if params[:name]
       search = params[:name].downcase
       @results = User.where("name_downcase like ?", "%#{search}%")
+      flash[:error] = 'There are no users by that name' if @results == nil
     end
     @results ||= []
   end
