@@ -10,7 +10,9 @@ Qnq::Application.routes.draw do
   post "/users/update" => "users#update"
   get "/logout" => "sessions#destroy"
 
-  resources :users
+  resources :users do
+    resources :flags
+  end
   resources :session
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

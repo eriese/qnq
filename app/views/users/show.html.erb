@@ -27,6 +27,22 @@
     <% end %>
   <% end %>
 <% end %>
+<% @flags.each do |flag| %>
+  <% if flag.positive %>
+    <div class="positive">
+      <%= flag.message %><br>
+    </div>
+  <% elsif flag.positive == false %>
+     <div class="negative">
+       <%= flag.message %>
+     </div>
+  <% else %>
+    <div class="neutral">
+      <%= flag.message %>
+    </div>
+  <% end %>
+<% end %>
+<%= link_to("Flag this user", new_user_flag_path(@user)) %><br>
 <% if params[:id] == session[:user_id].to_s %>
 <strong><%= link_to("Edit Profile", "/users/#{@user.id}/edit") %></strong>
 <% end %>

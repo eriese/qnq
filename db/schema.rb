@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025130955) do
+ActiveRecord::Schema.define(:version => 20140112043854) do
+
+  create_table "flags", :force => true do |t|
+    t.text     "message"
+    t.integer  "flagged_user"
+    t.integer  "flagger"
+    t.boolean  "positive"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

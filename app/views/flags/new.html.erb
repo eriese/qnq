@@ -1,0 +1,8 @@
+<div class="form">
+  <%= form_for [@flagged_user, @flag] do |t| %>
+    <%= t.text_area :message %><br>
+    <%= t.label :positive, "This flag is:" %>
+    <%= t.select :positive, options_for_select([["negative", false], ["positive", true], ["neutral", nil]], "neutral") %>
+    <%= t.submit %>
+  <% end %>
+</div>

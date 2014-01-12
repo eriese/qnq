@@ -94,3 +94,12 @@ a:hover{
   max-width: 50%;
   margin: auto;
 }
+.negative {
+  color: red;
+}
+.positive {
+  color: green;
+}
+.neutral {
+  color: blue;
+}

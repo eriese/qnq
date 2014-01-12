@@ -14,23 +14,30 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  fb_photo_large   :string(255)
+#  niche            :text
+#  name_downcase    :text
 #
 
 class User < ActiveRecord::Base
   # has_secure_password
   attr_accessible :name, :gender, :sexuality, :photo_url, :fb_photo_large, :niche, :name_downcase
+  has_many :flags, foreign_key: "flagged_user"
+  has_many :flags, foreign_key: "flagger"
   # validates :fb_email, :presence => true, :uniqueness => true
   # validates :password, :password_confirmation, :presence => true
   # validates :password, :password_confirmation, :length => {in: 6..20}
   def self.from_omniauth(auth)
-  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-    user.provider = auth.provider
-    user.uid = auth.uid
-    user.name ||= auth.info.name
-    user.name_downcase = user.name.downcase
-    user.oauth_token = auth.credentials.token
-    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    user.save!
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name ||= auth.info.name
+      user.name_downcase = user.name.downcase
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
   end
-end
+  def flags
+    Flag.where(flagged_user: self.id)
+  end
 end

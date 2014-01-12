@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       graph = Koala::Facebook::API.new(login_user.oauth_token)
       @mutual = graph.get_connection("me", "mutualfriends/#{@user.uid}")
       @size = "large"
+      @flags = @user.flags
     else
       render :search
     end

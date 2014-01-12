@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 #Gemfile
+gem "coveralls", require: false
 group :development, :test do
 
   gem 'annotate'            # Annotate all your models, tests, fixtures, and factories
@@ -16,7 +17,11 @@ group :development, :test do
                             # https://github.com/dejan/rails_panel/tree/master/meta_request
   gem 'rails-erd'           # Diagrams your models. NOTE! $ brew install graphviz
                             # https://github.com/voormedia/rails-erd
-
+  gem "rspec-rails"
+  gem "simplecov"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "jasmine"
 end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
