@@ -246,6 +246,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   coveralls
+  debugger
   jasmine
   jquery-rails
   koala
