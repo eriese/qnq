@@ -6,9 +6,10 @@ class FlagsController < ApplicationController
   end
   def create
     @flag = Flag.new(params[:flag])
-    @user = params[:user_id]
-    @flag.flagged_user = params[:user_id]
+    @user = User.find(params[:user_id])
+    @flag.flagged_user = @user.id
     @flag.flagger = session[:user_id]
+    @flag.familiarity = @flag.get_familiarity(@user)
     if @flag.save
       redirect_to user_path(@user)
     else

@@ -2,9 +2,12 @@ class UsersController < ApplicationController
   def show
     if User.find(params[:id])
       @user = User.find(params[:id])
-      login_user = User.find(session[:user_id])
-      graph = Koala::Facebook::API.new(login_user.oauth_token)
-      @mutual = graph.get_connection("me", "mutualfriends/#{@user.uid}")
+      @login_user = User.find(session[:user_id])
+      if @user != @login_user
+        graph = Koala::Facebook::API.new(@login_user.oauth_token)
+        @mutual = graph.get_connection("me", "mutualfriends/#{@user.uid}")
+        @groups = @user.mutual_groups(@login_user)
+      end
       @size = "large"
       @flags = @user.flags
     else

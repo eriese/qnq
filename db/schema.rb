@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140112043854) do
+ActiveRecord::Schema.define(:version => 20140115182414) do
 
   create_table "flags", :force => true do |t|
     t.text     "message"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140112043854) do
     t.boolean  "positive"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "familiarity"
   end
 
   create_table "users", :force => true do |t|

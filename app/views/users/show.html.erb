@@ -17,8 +17,27 @@
 </table>
 
 <br>
-<% if @user.id != session[:user_id] %>
-<h2>Mutual friends:</h2>
+<h2>Flags:</h2>
+<% @flags.each do |flag| %>
+  <% if flag[:positive] %>
+    <div class="positive">
+      <%= flag[:message] %>
+    </div>
+  <% elsif flag[:positive] == false %>
+     <div class="negative">
+       <%= flag[:message] %>
+     </div>
+  <% else %>
+    <div class="neutral">
+      <%= flag[:message] %>
+    </div>
+  <% end %>
+  (<%= flag[:familiarity] %> mutual friends with <%= @user.name %>) <br>
+<% end %>
+<%= link_to("Flag this user", new_user_flag_path(@user)) %><br>
+
+<% if @mutual %>
+  <h2>Mutual friends:</h2>
   <% if @mutual == [] %>
     <p>Uh oh! You two have no friends in common</p>
   <% else %>
@@ -26,23 +45,17 @@
       <%= friend["name"] %><br>
     <% end %>
   <% end %>
-<% end %>
-<% @flags.each do |flag| %>
-  <% if flag.positive %>
-    <div class="positive">
-      <%= flag.message %><br>
-    </div>
-  <% elsif flag.positive == false %>
-     <div class="negative">
-       <%= flag.message %>
-     </div>
+  <br>
+  <h2>Mutual groups:</h2>
+  <% if @groups == [] %>
+    <p>Uh oh! You two have no groups in common</p>
   <% else %>
-    <div class="neutral">
-      <%= flag.message %>
-    </div>
+    <% @groups.each do |group| %>
+      <%= group["name"] %><br>
+    <% end %>
   <% end %>
 <% end %>
-<%= link_to("Flag this user", new_user_flag_path(@user)) %><br>
+<br>
 <% if params[:id] == session[:user_id].to_s %>
 <strong><%= link_to("Edit Profile", "/users/#{@user.id}/edit") %></strong>
 <% end %>

@@ -38,6 +38,20 @@ class User < ActiveRecord::Base
     end
   end
   def flags
-    Flag.where(flagged_user: self.id)
+    flags = Flag.where(flagged_user: self.id)
+    mapped_flags = flags.map do |flag|
+        {message: flag.message, stack: flag.familiarity, familiarity: flag.encode_familiarity(self), positive: flag.positive}
+      end
+    mapped_flags.sort_by! { |flag| flag[:stack] }
+    mapped_flags.reverse!
+  end
+  def groups
+    graph = Koala::Facebook::API.new(self.oauth_token)
+    groups = graph.get_connections("me", "groups")
+    groups.reject! {|group| group["bookmark_order"] == 999999999}
+    groups.sort_by! {|group| group["bookmark_order"]}
+  end
+  def mutual_groups(user)
+    user.groups & self.groups
   end
 end
